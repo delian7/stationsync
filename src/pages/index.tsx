@@ -18,7 +18,8 @@ const Home = () => {
       <div className={styles.grid}>
         {employees.map((employee, index) => (
           <div key={index} className={styles.card}>
-            <h2>{employee.properties['Employee Name'].title[0].text.content}</h2>
+            <h2 className="text-center">Table: {employee.properties['Table Number'].number}</h2>
+            <h3>{employee.properties['Employee Name'].title[0].text.content}</h3>
             <p><strong>Type of Clothing:</strong> {employee.properties['Type of Clothing'].rich_text[0].text.content}</p>
             <p><strong>Status:</strong> {employee.properties.Status.select.name}</p>
             <p><strong>Timestamps:</strong> {employee.properties.Timestamps.date.start}</p>

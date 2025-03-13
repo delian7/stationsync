@@ -31,5 +31,8 @@ export interface Employee {
         };
       }[];
     };
+    'Table Number': {
+      number: number;
+    };
   };
 }
