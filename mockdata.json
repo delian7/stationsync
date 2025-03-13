@@ -1,0 +1,660 @@
+{
+  "results": [
+    {
+      "properties": {
+        "Employee Name": {
+          "title": [
+            {
+              "text": {
+                "content": "John Doe"
+              }
+            }
+          ]
+        },
+        "Type of Clothing": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Shirts"
+              }
+            }
+          ]
+        },
+        "Status": {
+          "select": {
+            "name": "Present"
+          }
+        },
+        "Timestamps": {
+          "date": {
+            "start": "2025-03-13T08:00:00Z"
+          }
+        },
+        "Department": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Recycling"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "Employee Name": {
+          "title": [
+            {
+              "text": {
+                "content": "Jane Smith"
+              }
+            }
+          ]
+        },
+        "Type of Clothing": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Pants"
+              }
+            }
+          ]
+        },
+        "Status": {
+          "select": {
+            "name": "Absent"
+          }
+        },
+        "Timestamps": {
+          "date": {
+            "start": "2025-03-13T08:00:00Z"
+          }
+        },
+        "Department": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Sorting"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "Employee Name": {
+          "title": [
+            {
+              "text": {
+                "content": "Alice Johnson"
+              }
+            }
+          ]
+        },
+        "Type of Clothing": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Jackets"
+              }
+            }
+          ]
+        },
+        "Status": {
+          "select": {
+            "name": "Present"
+          }
+        },
+        "Timestamps": {
+          "date": {
+            "start": "2025-03-13T08:00:00Z"
+          }
+        },
+        "Department": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Recycling"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "Employee Name": {
+          "title": [
+            {
+              "text": {
+                "content": "Bob Brown"
+              }
+            }
+          ]
+        },
+        "Type of Clothing": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Shirts"
+              }
+            }
+          ]
+        },
+        "Status": {
+          "select": {
+            "name": "Present"
+          }
+        },
+        "Timestamps": {
+          "date": {
+            "start": "2025-03-13T08:00:00Z"
+          }
+        },
+        "Department": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Sorting"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "Employee Name": {
+          "title": [
+            {
+              "text": {
+                "content": "Charlie Davis"
+              }
+            }
+          ]
+        },
+        "Type of Clothing": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Pants"
+              }
+            }
+          ]
+        },
+        "Status": {
+          "select": {
+            "name": "Absent"
+          }
+        },
+        "Timestamps": {
+          "date": {
+            "start": "2025-03-13T08:00:00Z"
+          }
+        },
+        "Department": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Recycling"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "Employee Name": {
+          "title": [
+            {
+              "text": {
+                "content": "Diana Evans"
+              }
+            }
+          ]
+        },
+        "Type of Clothing": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Jackets"
+              }
+            }
+          ]
+        },
+        "Status": {
+          "select": {
+            "name": "Present"
+          }
+        },
+        "Timestamps": {
+          "date": {
+            "start": "2025-03-13T08:00:00Z"
+          }
+        },
+        "Department": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Sorting"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "Employee Name": {
+          "title": [
+            {
+              "text": {
+                "content": "Ethan Foster"
+              }
+            }
+          ]
+        },
+        "Type of Clothing": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Shirts"
+              }
+            }
+          ]
+        },
+        "Status": {
+          "select": {
+            "name": "Present"
+          }
+        },
+        "Timestamps": {
+          "date": {
+            "start": "2025-03-13T08:00:00Z"
+          }
+        },
+        "Department": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Recycling"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "Employee Name": {
+          "title": [
+            {
+              "text": {
+                "content": "Fiona Green"
+              }
+            }
+          ]
+        },
+        "Type of Clothing": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Pants"
+              }
+            }
+          ]
+        },
+        "Status": {
+          "select": {
+            "name": "Absent"
+          }
+        },
+        "Timestamps": {
+          "date": {
+            "start": "2025-03-13T08:00:00Z"
+          }
+        },
+        "Department": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Sorting"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "Employee Name": {
+          "title": [
+            {
+              "text": {
+                "content": "George Harris"
+              }
+            }
+          ]
+        },
+        "Type of Clothing": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Jackets"
+              }
+            }
+          ]
+        },
+        "Status": {
+          "select": {
+            "name": "Present"
+          }
+        },
+        "Timestamps": {
+          "date": {
+            "start": "2025-03-13T08:00:00Z"
+          }
+        },
+        "Department": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Recycling"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "Employee Name": {
+          "title": [
+            {
+              "text": {
+                "content": "Hannah Johnson"
+              }
+            }
+          ]
+        },
+        "Type of Clothing": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Shirts"
+              }
+            }
+          ]
+        },
+        "Status": {
+          "select": {
+            "name": "Absent"
+          }
+        },
+        "Timestamps": {
+          "date": {
+            "start": "2025-03-13T08:00:00Z"
+          }
+        },
+        "Department": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Sorting"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "Employee Name": {
+          "title": [
+            {
+              "text": {
+                "content": "Ian King"
+              }
+            }
+          ]
+        },
+        "Type of Clothing": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Pants"
+              }
+            }
+          ]
+        },
+        "Status": {
+          "select": {
+            "name": "Present"
+          }
+        },
+        "Timestamps": {
+          "date": {
+            "start": "2025-03-13T08:00:00Z"
+          }
+        },
+        "Department": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Recycling"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "Employee Name": {
+          "title": [
+            {
+              "text": {
+                "content": "Jack Lee"
+              }
+            }
+          ]
+        },
+        "Type of Clothing": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Jackets"
+              }
+            }
+          ]
+        },
+        "Status": {
+          "select": {
+            "name": "Absent"
+          }
+        },
+        "Timestamps": {
+          "date": {
+            "start": "2025-03-13T08:00:00Z"
+          }
+        },
+        "Department": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Sorting"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "Employee Name": {
+          "title": [
+            {
+              "text": {
+                "content": "Karen Miller"
+              }
+            }
+          ]
+        },
+        "Type of Clothing": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Shirts"
+              }
+            }
+          ]
+        },
+        "Status": {
+          "select": {
+            "name": "Present"
+          }
+        },
+        "Timestamps": {
+          "date": {
+            "start": "2025-03-13T08:00:00Z"
+          }
+        },
+        "Department": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Recycling"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "Employee Name": {
+          "title": [
+            {
+              "text": {
+                "content": "Liam Nelson"
+              }
+            }
+          ]
+        },
+        "Type of Clothing": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Pants"
+              }
+            }
+          ]
+        },
+        "Status": {
+          "select": {
+            "name": "Absent"
+          }
+        },
+        "Timestamps": {
+          "date": {
+            "start": "2025-03-13T08:00:00Z"
+          }
+        },
+        "Department": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Sorting"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "Employee Name": {
+          "title": [
+            {
+              "text": {
+                "content": "Mia Owens"
+              }
+            }
+          ]
+        },
+        "Type of Clothing": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Jackets"
+              }
+            }
+          ]
+        },
+        "Status": {
+          "select": {
+            "name": "Present"
+          }
+        },
+        "Timestamps": {
+          "date": {
+            "start": "2025-03-13T08:00:00Z"
+          }
+        },
+        "Department": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Recycling"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "properties": {
+        "Employee Name": {
+          "title": [
+            {
+              "text": {
+                "content": "Noah Parker"
+              }
+            }
+          ]
+        },
+        "Type of Clothing": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Shirts"
+              }
+            }
+          ]
+        },
+        "Status": {
+          "select": {
+            "name": "Absent"
+          }
+        },
+        "Timestamps": {
+          "date": {
+            "start": "2025-03-13T08:00:00Z"
+          }
+        },
+        "Department": {
+          "rich_text": [
+            {
+              "text": {
+                "content": "Sorting"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
