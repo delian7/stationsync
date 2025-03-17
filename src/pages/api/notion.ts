@@ -6,9 +6,9 @@ const notion = new Client({ auth: process.env.NOTION_API_KEY })
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const databaseId = process.env.NOTION_DATABASE_ID;
-
+  let response;
   try {
-    const response = await notion.databases.query({
+    response = await notion.databases.query({
       database_id: databaseId!,
     });
 
@@ -34,6 +34,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     res.status(200).json(employees);
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: 'Failed to fetch data' });
+    res.status(500).json({ message: 'Failed to fetch data', error: error, response: response });
   }
 }
