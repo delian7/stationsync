@@ -8,7 +8,9 @@ const Home = () => {
     async function fetchData() {
       const res = await fetch('/api/notion');
       const result = await res.json();
-      setEmployees(result);
+      if (res.status === 200) {
+        setEmployees(result);
+      }
     }
 
     fetchData();
