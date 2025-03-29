@@ -1,7 +1,8 @@
 export interface Employee {
   name: string;
   clothingType: string;
-  status: string;
+  absent: boolean;
+  reason: string;
   lastEditTime: number;
   department: string;
   tableNumber: number;

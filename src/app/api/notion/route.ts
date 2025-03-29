@@ -22,6 +22,7 @@ export async function GET() {
       timestamps: "Jt%5BG", // last_edited_time
       department: "etCY", // select
       tableNumber: "title", // title
+      absent: "IBBq" // formula
     };
 
     // Helper to find property by id from the properties object
@@ -31,14 +32,27 @@ export async function GET() {
     };
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const employees: Employee[] = response.results.map((result: any) => ({
-      name: getPropertyById(result.properties, propertyIds.employeeName)?.select?.name,
-      clothingType: getPropertyById(result.properties, propertyIds.typeOfClothing)?.select?.name,
-      status: getPropertyById(result.properties, propertyIds.status)?.select?.name,
-      lastEditTime: getPropertyById(result.properties, propertyIds.timestamps)?.last_edited_time,
-      department: getPropertyById(result.properties, propertyIds.department)?.select?.name,
-      tableNumber: getPropertyById(result.properties, propertyIds.tableNumber)?.title[0]?.text?.content,
-    }));
+    // const employees: Employee[] = response.results.map((result: any) => ({
+    //   name: getPropertyById(result.properties, propertyIds.employeeName)?.select?.name,
+    //   clothingType: getPropertyById(result.properties, propertyIds.typeOfClothing)?.select?.name,
+    //   status: getPropertyById(result.properties, propertyIds.status)?.select?.name,
+    //   lastEditTime: getPropertyById(result.properties, propertyIds.timestamps)?.last_edited_time,
+    //   department: getPropertyById(result.properties, propertyIds.department)?.select?.name,
+    //   tableNumber: getPropertyById(result.properties, propertyIds.tableNumber)?.title[0]?.text?.content,
+    // }));
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const employees: Employee[] = response.results.map((result: any) => {
+      return {
+        name: getPropertyById(result.properties, propertyIds.employeeName)?.select?.name,
+        clothingType: getPropertyById(result.properties, propertyIds.typeOfClothing)?.select?.name,
+        reason: getPropertyById(result.properties, propertyIds.status)?.select?.name,
+        absent: getPropertyById(result.properties, propertyIds.absent)?.formula?.boolean,
+        lastEditTime: getPropertyById(result.properties, propertyIds.timestamps)?.last_edited_time,
+        department: getPropertyById(result.properties, propertyIds.department)?.select?.name,
+        tableNumber: getPropertyById(result.properties, propertyIds.tableNumber)?.title[0]?.text?.content,
+      }
+    })
 
     return NextResponse.json(employees);
     // return NextResponse.json(response.results)

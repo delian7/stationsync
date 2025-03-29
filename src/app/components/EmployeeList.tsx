@@ -33,7 +33,10 @@ export default function EmployeeList() {
         {employees.map((employee, index) => (
           <div
             key={index}
-            className="bg-white border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow duration-200"
+            className={`border border-gray-200 rounded-lg p-6 shadow-sm hover:shadow-md
+              transition-shadow duration-200
+              ${employee.absent ? "bg-red-100" : "bg-green-100"}
+            `}
           >
             <h2 className="text-center text-xl font-semibold mb-4">
               #{employee.tableNumber}
@@ -45,7 +48,7 @@ export default function EmployeeList() {
               {employee.name}
             </h3>
             <p>
-              {employee.status}
+              {employee.reason}
             </p>
             {/* <p>
               <strong>Отдел:</strong> {employee.department}
