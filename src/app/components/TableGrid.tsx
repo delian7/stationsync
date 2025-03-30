@@ -64,7 +64,7 @@ const TableGrid = () => {
             <div className="grid grid-cols-1 gap-4">
               <div className="border-2 p-2">
                 <h2 className="text-center">Старо Първично</h2>
-                <RetroTables />
+                {tables?.RetroTables && <RetroTables tables={tables.RetroTables} />}
               </div>
 
               <div className="border-2 p-2">
