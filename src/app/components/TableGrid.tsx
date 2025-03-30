@@ -1,19 +1,21 @@
 import RetroTableGrid from './RetroTableGrid';
-const TableGrid = () => {
-  // Sample data - replace with your actual data
-  const generateData = (maxNum: number) => {
-    const data = [];
-    for (let i = 1; i <= maxNum; i++) {
-      data.push({
-        id: i,
-        employee: `Employee ${i}`,
-        status: ['Active', 'Pending', 'Complete'][Math.floor(Math.random() * 3)],
-        clothing: ['Shirt', 'Pants', 'Jacket', 'Shoes'][Math.floor(Math.random() * 4)]
-      });
-    }
-    return data;
-  };
+// Sample data - replace with your actual data
+export const generateData = (maxNum: number) => {
+  const data = [];
+  for (let i = 1; i <= maxNum; i++) {
+    data.push({
+      id: i,
+      employee: `Служител ${i}`,
+      // Bulgarian statuses: Активен, Изчакващ, Завършен
+      status: ['Active', 'Pending', 'Complete'][Math.floor(Math.random() * 3)],
+      // Bulgarian clothing: Риза, Панталони, Якета, Обувки
+      clothing: ['Риза', 'Панталони', 'Якета', 'Обувки'][Math.floor(Math.random() * 4)]
+    });
+  }
+  return data;
+};
 
+const TableGrid = () => {
   const tables = generateData(104);
   const totalRows = 13;
   const tablesPerRow = 8;
@@ -24,6 +26,7 @@ const TableGrid = () => {
       <div className="grid grid-cols-2 gap-4">
         {/* Left grid: the original table grid */}
         <div>
+          <h2 className="text-center mb-2">Таблици</h2>
           <div className="grid grid-cols-1 gap-4">
             {Array.from({ length: totalRows }, (_, rowIndex) => {
               const startIdx = rowIndex * tablesPerRow;
@@ -61,9 +64,9 @@ const TableGrid = () => {
           </div>
         </div>
 
-      <div >
+      <div>
         <RetroTableGrid/>
-      </div>{/* Right grid: a new grid with 8 columns and 4 rows */}
+      </div>
       </div>
     </div>
   );
