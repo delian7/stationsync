@@ -44,10 +44,12 @@ const TableGrid = () => {
               <div className="border-2 p-2">
                 <h2 className="text-center mb-2">Първично</h2>
                 <div className="grid grid-cols-2 gap-3">
-                  <div className="border-r-2 pr-2 border-dotted">
+                  <div className="pr-4">
                     <SortingTables />
                   </div>
-                  <SortingLine />
+                  <div className="border-l-2 border-dotted pl-8">
+                    <SortingLine />
+                  </div>
                 </div>
               </div>
             </div>
