@@ -71,7 +71,7 @@ const TableGrid = () => {
                 <h2 className="text-center mb-2">Първично</h2>
                 <div className="grid grid-cols-2 gap-3">
                   <div className="pr-4">
-                    <SortingTables />
+                    {tables?.SortingTables && <SortingTables data={tables.SortingTables}/>}
                   </div>
                   <div className="border-l-2 border-dotted pl-8">
                     <SortingLine />
