@@ -1,12 +1,13 @@
-import { generateData } from "./TableGrid";
+import { Table } from "../types/Table";
 
-const SortingLine = () => {
+interface SortingLineProps {
+  data: Table[];
+}
 
-
-  const tables = generateData(14);
+const SortingLine = ({data}: SortingLineProps) => {
+  const tables = data;
   const totalRows = 7;
   const tablesPerRow = 2;
-  const emptyTableIds: Array<number> = [];
 
   return (
     <div className="grid grid-cols-1 gap-4">
@@ -18,21 +19,21 @@ const SortingLine = () => {
           <div key={rowIndex} className="grid grid-cols-2 gap-2">
             {rowTables.map((table) => (
               <div
-                key={table.id}
+                key={table.tableNumber}
                 className={`rounded-lg shadow-md p-2 hover:shadow-lg transition-shadow
-                  ${emptyTableIds.includes(table.id) ? 'opacity-0' : 'cursor-pointer'}
-                  ${table.status === 'Active' ? "bg-red-100" : "bg-green-100"}
+                  ${table.hidden ? 'opacity-0' : 'cursor-pointer'}
+                  ${table.absent ? "bg-red-100" : "bg-green-100"}
                 `}
               >
                 <div className="flex flex-col space-y-2">
                   <div className="text-md font-bold text-gray-800">
-                    #{table.id}
+                    #{table.tableNumber}
                   </div>
                   <div className="text-xs text-gray-600">
-                    {table.employee}
+                    {table.name}
                   </div>
                   <div className="text-xs text-gray-700 font-medium">
-                    {table.clothing}
+                    {table.clothingType}
                   </div>
                 </div>
               </div>
