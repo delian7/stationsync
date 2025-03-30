@@ -1,36 +1,39 @@
-import { generateData } from "./TableGrid";
+import { Table } from "../types/Table";
 
-const NewTables = () => {
-  const tables2 = generateData(104);
-  const totalRows2 = 13;
-  const tablesPerRow2 = 5;
-  const emptyTableIds2 = [52];
+interface NewTableProps {
+  data: Table[];
+}
+
+const NewTables = ({data}: NewTableProps) => {
+  const tables = data;
+  const totalRows = 13;
+  const tablesPerRow = 5;
 
   return (
     <div className='gap-2'>
       <div className="grid grid-cols-1 gap-2">
-        {Array.from({ length: totalRows2 }, (_, rowIndex) => {
-          const startIdx = rowIndex * tablesPerRow2;
-          const rowTables = tables2.slice(startIdx, startIdx + tablesPerRow2);
+        {Array.from({ length: totalRows }, (_, rowIndex) => {
+          const startIdx = rowIndex * tablesPerRow;
+          const rowTables = tables.slice(startIdx, startIdx + tablesPerRow);
           return (
             <div key={rowIndex} className="grid grid-cols-5 gap-0">
               {rowTables.map((table) => (
                 <div
-                  key={table.id}
+                  key={table.tableNumber}
                   className={`rounded-lg shadow-md p-2 hover:shadow-lg transition-shadow
-                    ${emptyTableIds2.includes(table.id) ? 'opacity-0' : 'cursor-pointer'}
-                    ${table.status === 'Active' ? "bg-red-100" : "bg-green-100"}
+                    ${table.hidden ? 'opacity-0' : 'cursor-pointer'}
+                    ${table.absent ? "bg-red-100" : "bg-green-100"}
                   `}
                 >
                   <div className="flex flex-col space-y-2">
                     <div className="text-md font-bold text-gray-800">
-                      #{table.id}
+                      #{table.tableNumber}
                     </div>
                     <div className="text-xs text-gray-600">
-                      {table.employee}
+                      {table.name}
                     </div>
                     <div className="text-xs text-gray-700 font-medium">
-                      {table.clothing}
+                      {table.clothingType}
                     </div>
                   </div>
                 </div>

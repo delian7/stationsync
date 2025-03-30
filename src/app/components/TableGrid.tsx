@@ -56,7 +56,7 @@ const TableGrid = () => {
 
         <div className="col-span-2 border-2 p-2">
           <h2 className="text-center">Нови Маси</h2>
-          <NewTables />
+          {tables?.NewTables && <NewTables data={tables.NewTables} />}
         </div>
 
         <div className="col-span-3">
