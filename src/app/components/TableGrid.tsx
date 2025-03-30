@@ -1,8 +1,13 @@
+"use client";
+
+import { useEffect, useState } from 'react';
+import LoadingSpinner from './LoadingSpinner';
 import NewTables from './NewTables';
 import OldTables from './OldTables';
 import RetroTables from './RetroTables';
 import SortingLine from './SortingLine';
 import SortingTables from './SortingTables';
+import { TableGroups } from '../types/Table';
 
 export const generateData = (maxNum: number) => {
   const data = [];
@@ -20,12 +25,33 @@ export const generateData = (maxNum: number) => {
 };
 
 const TableGrid = () => {
+  const [loading, setLoading] = useState(true);
+  const [tables, setTables] = useState<TableGroups>();
+
+  useEffect(() => {
+    async function fetchData() {
+      const res = await fetch("/api/notion");
+      const result = await res.json();
+      setLoading(false);
+      if (res.status === 200) {
+        setTables(result);
+      }
+    }
+    fetchData();
+  }, []);
+
+  if (loading) {
+    return (
+      <LoadingSpinner />
+    );
+  }
+
   return (
     <div className="p-4 bg-gray-100 min-h-screen">
       <div className="grid grid-cols-6 gap-3">
         <div className="border-2 p-2">
           <h2 className="text-center mb-2">Стари Маси</h2>
-          <OldTables />
+          {tables?.OldTables && <OldTables data={tables.OldTables}/>}
         </div>
 
         <div className="col-span-2 border-2 p-2">

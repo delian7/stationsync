@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Employee } from "../../types/Employee";
+import { Table } from "../types/Table";
 import LoadingSpinner from "./LoadingSpinner";
 
 export default function EmployeeList() {
-  const [employees, setEmployees] = useState<Employee[]>([]);
+  const [employees, setEmployees] = useState<Table[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
