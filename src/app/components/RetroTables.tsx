@@ -5,7 +5,7 @@ const RetroTables = () => {
 
   const tables = generateData(36);
   const totalRows = 10;
-  const tablesPerRow = 8;
+  const tablesPerRow = 6;
   const emptyTableIds = [15,16,23,24,30,31,32];
 
   return (
@@ -16,7 +16,7 @@ const RetroTables = () => {
         const rowTables = tables.slice(startIdx, startIdx + tablesPerRow);
 
         return (
-          <div key={rowIndex} className="grid grid-cols-8 gap-2">
+          <div key={rowIndex} className="grid grid-cols-6 gap-2">
             {rowTables.map((table) => (
               <div
                 key={table.id}

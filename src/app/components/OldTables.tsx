@@ -8,7 +8,6 @@ const OldTables = () => {
 
   return (
     <div>
-      <h2 className="text-center mb-2">Стари Маси</h2>
       <div className="grid grid-cols-1 gap-2">
         {Array.from({ length: totalRows }, (_, rowIndex) => {
           const startIdx = rowIndex * tablesPerRow;
