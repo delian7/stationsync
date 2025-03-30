@@ -31,10 +31,10 @@ const TableGrid = () => {
         <div className="col-span-3">
           <div className="px-2 min-h-screen">
             <div className="grid grid-cols-1 gap-4">
-              <h2 className="text-center">Ретро</h2>
+              <h2 className="text-center">Старо Първично</h2>
               <RetroTables />
 
-              <h2 className="text-center mb-2">Сортиращи Маси</h2>
+              <h2 className="text-center mb-2">Първично</h2>
               <SortingTables />
             </div>
         </div>
