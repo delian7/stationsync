@@ -1,10 +1,10 @@
 import { generateData } from "./TableGrid";
 
 const SortingTables = () => {
-  const tables2 = generateData(30);
-  const totalRows2 = 5;
-  const tablesPerRow2 = 4;
-  const emptyTableIds2 = [9,10,17,22,25,26];
+  const tables2 = generateData(12);
+  const totalRows2 = 6;
+  const tablesPerRow2 = 2;
+  const emptyTableIds2 = [7,10];
 
   return (
     <div className="">
@@ -13,11 +13,11 @@ const SortingTables = () => {
         const rowTables = tables2.slice(startIdx, startIdx + tablesPerRow2);
 
         return (
-          <div key={rowIndex} className="grid grid-cols-4 gap-2">
+          <div key={rowIndex} className="grid grid-cols-2 gap-4">
             {rowTables.map((table) => (
               <div
                 key={table.id}
-                className={`rounded-lg shadow-md p-2 hover:shadow-lg transition-shadow
+                className={`rounded-lg shadow-md p-2 my-2 hover:shadow-lg transition-shadow
                   ${emptyTableIds2.includes(table.id) ? 'opacity-0' : 'cursor-pointer'}
                   ${table.status === 'Active' ? "bg-red-100" : "bg-green-100"}
                 `}
