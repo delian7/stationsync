@@ -11,26 +11,35 @@ export async function GET() {
   }
 
   try {
-    const response = await notion.databases.query({
-      database_id: databaseId,
-      sorts: [
-        {
-          property: "title",
-          direction: "ascending",
-        },
-      ]
-    });
+    // Gather all results using pagination
+    const allResults: Array<Record<string, unknown>> = [];
+    let cursor: string | undefined = undefined;
+
+    do {
+      const response = await notion.databases.query({
+        database_id: databaseId,
+        sorts: [
+          {
+            property: "title",
+            direction: "ascending",
+          },
+        ],
+        start_cursor: cursor,
+      });
+      allResults.push(...response.results);
+      cursor = response.has_more ? response.next_cursor! : undefined;
+    } while (cursor);
 
     const propertyIds = {
       employeeName: "bfda5057-9abd-4a54-b0bb-02ade7ac557f", // select
-      typeOfClothing: "SE%7Be",  //select
-      status: "%3Fzms", //select
+      typeOfClothing: "SE%7Be", // select
+      status: "%3Fzms", // select
       timestamps: "Jt%5BG", // last_edited_time
       department: "etCY", // select
       tableNumber: "title", // title
       absent: "IBBq", // formula
-      tableType: "~xFw", //select
-      hiddenTable: "ZpCY"// boolean
+      tableType: "~xFw", // select
+      hiddenTable: "ZpCY", // boolean
     };
 
     // Helper to find property by id from the properties object
@@ -39,8 +48,9 @@ export async function GET() {
       return Object.values(properties).find((prop) => prop.id === id);
     };
 
+    // Map the full results to Table items
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const tables: Table[] = response.results.map((result: any) => {
+    const tables: Table[] = allResults.map((result: any) => {
       return {
         name: getPropertyById(result.properties, propertyIds.employeeName)?.select?.name,
         clothingType: getPropertyById(result.properties, propertyIds.typeOfClothing)?.select?.name,
@@ -51,8 +61,8 @@ export async function GET() {
         tableNumber: getPropertyById(result.properties, propertyIds.tableNumber)?.title[0]?.text?.content,
         tableType: getPropertyById(result.properties, propertyIds.tableType)?.select?.name,
         hidden: getPropertyById(result.properties, propertyIds.hiddenTable)?.checkbox,
-      }
-    })
+      };
+    });
 
     // Group results by tableType
     const groupedTables: TableGroups = tables.reduce((acc, table) => {
