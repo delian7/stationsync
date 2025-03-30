@@ -8,7 +8,6 @@ const NewTables = () => {
 
   return (
     <div className='gap-2'>
-      <h2 className="text-center mb-2">Нови Маси</h2>
       <div className="grid grid-cols-1 gap-2">
         {Array.from({ length: totalRows2 }, (_, rowIndex) => {
           const startIdx = rowIndex * tablesPerRow2;

@@ -1,24 +1,26 @@
 import { generateData } from "./TableGrid";
 
-const SortingTables = () => {
-  const tables2 = generateData(30);
-  const totalRows2 = 5;
-  const tablesPerRow2 = 4;
-  const emptyTableIds2 = [9,10,17,22,25,26];
+const SortingLine = () => {
+
+
+  const tables = generateData(14);
+  const totalRows = 7;
+  const tablesPerRow = 2;
+  const emptyTableIds: Array<number> = [];
 
   return (
-    <div className="">
-      {Array.from({ length: totalRows2 }, (_, rowIndex) => {
-        const startIdx = rowIndex * tablesPerRow2;
-        const rowTables = tables2.slice(startIdx, startIdx + tablesPerRow2);
+    <div className="grid grid-cols-1 gap-4">
+      {Array.from({ length: totalRows }, (_, rowIndex) => {
+        const startIdx = rowIndex * tablesPerRow;
+        const rowTables = tables.slice(startIdx, startIdx + tablesPerRow);
 
         return (
-          <div key={rowIndex} className="grid grid-cols-4 gap-2">
+          <div key={rowIndex} className="grid grid-cols-2 gap-2">
             {rowTables.map((table) => (
               <div
                 key={table.id}
                 className={`rounded-lg shadow-md p-2 hover:shadow-lg transition-shadow
-                  ${emptyTableIds2.includes(table.id) ? 'opacity-0' : 'cursor-pointer'}
+                  ${emptyTableIds.includes(table.id) ? 'opacity-0' : 'cursor-pointer'}
                   ${table.status === 'Active' ? "bg-red-100" : "bg-green-100"}
                 `}
               >
@@ -32,9 +34,6 @@ const SortingTables = () => {
                   <div className="text-xs text-gray-700 font-medium">
                     {table.clothing}
                   </div>
-                  <div className="text-xs font-medium rounded-full">
-                    {table.status}
-                  </div>
                 </div>
               </div>
             ))}
@@ -45,4 +44,4 @@ const SortingTables = () => {
   );
 };
 
-export default SortingTables;
+export default SortingLine;
