@@ -1,13 +1,24 @@
 import { Table } from "../types/Table";
+import { useModal } from "../contexts/ModalContext";
 
 interface OldTableProps {
   data: Table[];
 }
 
 const OldTables = ({ data }: OldTableProps) => {
+  const { openModal } = useModal();
   const tables = data;
   const totalRows = 13;
   const tablesPerRow = 3;
+
+  const TableDetail = (table: Table) => (
+    <div>
+      <h3 className="text-xl font-bold mb-2">Details for Table #{table.tableNumber}</h3>
+      <p>Employee: {table.name}</p>
+      <p>Clothing: {table.clothingType}</p>
+      <p>Status: {table.absent ? "Absent" : "Present"}</p>
+    </div>
+  );
 
   return (
     <div>
@@ -19,6 +30,7 @@ const OldTables = ({ data }: OldTableProps) => {
             <div key={rowIndex} className="grid md:w-64 w-96 grid-cols-3 gap-1 text-ellipsis">
               {rowTables.map((table) => (
                 <div
+                  onClick={() => openModal(TableDetail(table))}
                   key={table.tableNumber}
                   className={`rounded-lg shadow-md p-2 hover:shadow-lg transition-shadow
                     ${table.hidden ? 'opacity-0' : 'cursor-pointer'}
