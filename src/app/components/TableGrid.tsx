@@ -10,21 +10,6 @@ import SortingTables from './SortingTables';
 import { TableGroups } from '../types/Table';
 import RetroSortingTables from './RetroSortingTables';
 
-export const generateData = (maxNum: number) => {
-  const data = [];
-  for (let i = 1; i <= maxNum; i++) {
-    data.push({
-      id: i,
-      employee: `Служител ${i}`,
-      // Bulgarian statuses: Активен, Изчакващ, Завършен
-      status: ['Active', 'Pending', 'Complete'][Math.floor(Math.random() * 3)],
-      // Bulgarian clothing: Риза, Панталони, Якета, Обувки
-      clothing: ['Риза', 'Панталони', 'Якета', 'Обувки'][Math.floor(Math.random() * 4)]
-    });
-  }
-  return data;
-};
-
 const TableGrid = () => {
   const [loading, setLoading] = useState(true);
   const [tables, setTables] = useState<TableGroups>();
