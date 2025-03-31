@@ -8,6 +8,7 @@ import RetroTables from './RetroTables';
 import SortingLine from './SortingLine';
 import SortingTables from './SortingTables';
 import { TableGroups } from '../types/Table';
+import RetroSortingTables from './RetroSortingTables';
 
 export const generateData = (maxNum: number) => {
   const data = [];
@@ -64,7 +65,10 @@ const TableGrid = () => {
             <div className="grid grid-cols-1 gap-4">
               <div className="border-2 p-2">
                 <h2 className="text-center">Старо Първично</h2>
-                {tables?.RetroTables && <RetroTables tables={tables.RetroTables} />}
+                <div>
+                  {tables?.RetroTables && <RetroTables tables={tables.RetroTables} />}
+                  {tables?.RetroSortingTables && <RetroSortingTables tables={tables.RetroSortingTables} />}
+                </div>
               </div>
 
               <div className="border-2 p-2">

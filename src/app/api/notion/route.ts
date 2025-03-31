@@ -76,6 +76,7 @@ export async function GET() {
       OldTables: [],
       NewTables: [],
       RetroTables: [],
+      RetroSortingTables: [],
       SortingLine: [],
       SortingTables: []
     } as TableGroups);

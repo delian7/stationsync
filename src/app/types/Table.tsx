@@ -2,6 +2,7 @@ export interface TableGroups {
   OldTables: Table[];
   NewTables: Table[];
   RetroTables: Table[];
+  RetroSortingTables: Table[];
   SortingLine: Table[];
   SortingTables: Table[];
 }
