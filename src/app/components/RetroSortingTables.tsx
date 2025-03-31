@@ -9,14 +9,14 @@ const RetroSortingTables = ({tables}: RetroSortingTablesProps) => {
   const tablesPerRow = 7;
 
   return (
-    <div className="grid grid-cols-1 gap-4">
+    <div className="grid grid-cols-1 gap-4 overflow-x-auto">
 
       {Array.from({ length: totalRows }, (_, rowIndex) => {
         const startIdx = rowIndex * tablesPerRow;
         const rowTables = tables.slice(startIdx, startIdx + tablesPerRow);
 
         return (
-          <div key={rowIndex} className="grid grid-cols-7 gap-2">
+          <div key={rowIndex} className="grid grid-cols-7 gap-2 md:w-auto w-3xl">
             {rowTables.map((table) => (
               <div
                 key={table.tableNumber}

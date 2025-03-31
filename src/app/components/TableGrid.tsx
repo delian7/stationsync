@@ -49,7 +49,7 @@ const TableGrid = () => {
 
   return (
     <div className="p-4 bg-gray-100 min-h-screen">
-      <div className="grid grid-cols-6 gap-3">
+      <div className="grid grid-cols-6 gap-3 min-w-dvh overflow-x-auto">
         <div className="border-2 p-2">
           <h2 className="text-center mb-2">Стари Маси</h2>
           {tables?.OldTables && <OldTables data={tables.OldTables}/>}

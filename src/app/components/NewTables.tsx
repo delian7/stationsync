@@ -11,12 +11,12 @@ const NewTables = ({data}: NewTableProps) => {
 
   return (
     <div className='gap-2'>
-      <div className="grid grid-cols-1 gap-2">
+      <div className="grid grid-cols-1 gap-2 overflow-x-auto">
         {Array.from({ length: totalRows }, (_, rowIndex) => {
           const startIdx = rowIndex * tablesPerRow;
           const rowTables = tables.slice(startIdx, startIdx + tablesPerRow);
           return (
-            <div key={rowIndex} className="grid grid-cols-5 gap-0">
+            <div key={rowIndex} className="grid grid-cols-5 md:w-auto w-3xl gap-0">
               {rowTables.map((table) => (
                 <div
                   key={table.tableNumber}

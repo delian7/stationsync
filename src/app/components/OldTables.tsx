@@ -11,12 +11,12 @@ const OldTables = ({ data }: OldTableProps) => {
 
   return (
     <div>
-      <div className="grid grid-cols-1 gap-2">
+      <div className="grid grid-cols-1 gap-2 overflow-x-auto">
         {Array.from({ length: totalRows }, (_, rowIndex) => {
           const startIdx = rowIndex * tablesPerRow;
           const rowTables = tables.slice(startIdx, startIdx + tablesPerRow);
           return (
-            <div key={rowIndex} className="grid grid-cols-3 gap-1">
+            <div key={rowIndex} className="grid md:w-64 w-96 grid-cols-3 gap-1 text-ellipsis">
               {rowTables.map((table) => (
                 <div
                   key={table.tableNumber}
