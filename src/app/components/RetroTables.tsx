@@ -6,7 +6,7 @@ interface RetroTablesProps {
 
 const RetroTables = ({tables}: RetroTablesProps) => {
   const totalRows = 10;
-  const tablesPerRow = 7;
+  const tablesPerRow = 8;
 
   return (
     <div className="grid grid-cols-1 gap-4">
@@ -16,7 +16,7 @@ const RetroTables = ({tables}: RetroTablesProps) => {
         const rowTables = tables.slice(startIdx, startIdx + tablesPerRow);
 
         return (
-          <div key={rowIndex} className="grid grid-cols-7 gap-2">
+          <div key={rowIndex} className="grid grid-cols-8 gap-2">
             {rowTables.map((table) => (
               <div
                 key={table.tableNumber}
