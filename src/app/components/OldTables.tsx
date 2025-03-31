@@ -1,5 +1,6 @@
 import { Table } from "../types/Table";
 import { useModal } from "../contexts/ModalContext";
+import { TableDetail } from "./TableGrid";
 
 interface OldTableProps {
   data: Table[];
@@ -10,15 +11,6 @@ const OldTables = ({ data }: OldTableProps) => {
   const tables = data;
   const totalRows = 13;
   const tablesPerRow = 3;
-
-  const TableDetail = (table: Table) => (
-    <div>
-      <h3 className="text-xl font-bold mb-2">Details for Table #{table.tableNumber}</h3>
-      <p>Employee: {table.name}</p>
-      <p>Clothing: {table.clothingType}</p>
-      <p>Status: {table.absent ? "Absent" : "Present"}</p>
-    </div>
-  );
 
   return (
     <div>

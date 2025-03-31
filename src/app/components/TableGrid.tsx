@@ -7,8 +7,17 @@ import OldTables from './OldTables';
 import RetroTables from './RetroTables';
 import SortingLine from './SortingLine';
 import SortingTables from './SortingTables';
-import { TableGroups } from '../types/Table';
+import { Table, TableGroups } from '../types/Table';
 import RetroSortingTables from './RetroSortingTables';
+
+export const TableDetail = (table: Table) => (
+  <div>
+    <h3 className="text-xl font-bold mb-2">🪑 Маса #{table.tableNumber}</h3>
+    <p>🪪 Име на служител: {table.name}</p>
+    <p>👕 Артикул: {table.clothingType}</p>
+    <p>📍 Статус на Работниците: {table.reason}</p>
+  </div>
+);
 
 const TableGrid = () => {
   const [loading, setLoading] = useState(true);
