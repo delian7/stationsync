@@ -10,7 +10,7 @@ interface OldTableProps {
 }
 
 const OldTables = ({ data, setTables }: OldTableProps) => {
-  const updateOldTable = useTableUpdater(setTables, "OldTables");
+  const updateTable = useTableUpdater(setTables, "OldTables");
   const { openModal } = useModal();
   const [tables] = useState<Table[]>(data);
   const totalRows = 13;
@@ -26,7 +26,7 @@ const OldTables = ({ data, setTables }: OldTableProps) => {
             <div key={rowIndex} className="grid md:w-64 w-96 grid-cols-3 gap-1 text-ellipsis">
               {rowTables.map((table) => (
                 <div
-                  onClick={() => openModal(<TableDetails table={table} setTable={updateOldTable} />)}
+                  onClick={() => openModal(<TableDetails table={table} setTable={updateTable} />)}
                   key={table.tableNumber}
                   className={`rounded-lg shadow-md p-2 hover:shadow-lg transition-shadow
                     ${table.hidden ? 'opacity-0' : 'cursor-pointer'}

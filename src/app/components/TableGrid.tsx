@@ -53,7 +53,7 @@ const TableGrid = () => {
               <div className="border-2 p-2">
                 <h2 className="text-center">Старо Първично</h2>
                 <div>
-                  {tables?.RetroTables && <RetroTables tables={tables.RetroTables} />}
+                  {tables?.RetroTables && <RetroTables setTables={setTables} data={tables.RetroTables} />}
                   {tables?.RetroSortingTables && <RetroSortingTables tables={tables.RetroSortingTables} />}
                 </div>
               </div>
