@@ -36,7 +36,7 @@ const RetroTables = ({data, setTables}: RetroTablesProps) => {
               >
                 <div className="flex flex-col space-y-2">
                   <div className="text-md font-bold text-gray-800">
-                    #{table.tableNumber}
+                    {table.tableNumber}
                   </div>
                   <div className="text-xs text-gray-600">
                     {table.name}
