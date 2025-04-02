@@ -43,9 +43,6 @@ const OldTables = ({ data, setTables }: OldTableProps) => {
                     <div className="text-xs text-gray-700 font-medium">
                       {table.clothingType}
                     </div>
-                    <div className="text-xs text-gray-700 font-medium">
-                      {table.reason}
-                    </div>
                   </div>
                 </div>
               ))}
