@@ -2,6 +2,7 @@ import { Table, TableGroups } from '../types/Table';
 import { useModal } from "../contexts/ModalContext";
 import TableDetails from "./TableDetails";
 import { useState } from 'react';
+import useTableUpdater from '../utils/tableUpdater';
 
 interface OldTableProps {
   data: Table[];
@@ -9,24 +10,11 @@ interface OldTableProps {
 }
 
 const OldTables = ({ data, setTables }: OldTableProps) => {
+  const updateOldTable = useTableUpdater(setTables, "OldTables");
   const { openModal } = useModal();
   const [tables] = useState<Table[]>(data);
   const totalRows = 13;
   const tablesPerRow = 3;
-
-  // A helper to update a specific table within the OldTables group.
-  const updateOldTable = (updatedTable: Table) => {
-    setTables((prev) => {
-      if (!prev) return prev;
-      // Update only the matching table in the OldTables array
-      return {
-        ...prev,
-        OldTables: prev.OldTables.map((table) =>
-          table.id === updatedTable.id ? updatedTable : table
-        ),
-      };
-    });
-  };
 
   return (
     <div>
