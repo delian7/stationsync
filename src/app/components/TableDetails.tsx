@@ -13,8 +13,6 @@ const TableDetails: React.FC<TableDetailProps> = ({ table, setTable }) => {
   return (
     <div className={`p-4 rounded`}>
       <h3 className="text-xl font-bold mb-2">🪑 Маса #{tableData.tableNumber}</h3>
-      <p>ID: {tableData.id}</p>
-      <p>Notion Status Field: {tableData.notion_status_field}</p>
       <p>🪪 Име на служител: {tableData.name}</p>
       <p>👕 Артикул: {tableData.clothingType}</p>
       <div>
