@@ -4,7 +4,10 @@ import { Table, TableGroups } from "@/app/types/Table";
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
-export async function GET() {
+export async function GET(request: Request) {
+  const url = new URL(request.url);
+  const rawData = url.searchParams.get("raw");
+
   const databaseId = process.env.NOTION_DATABASE_ID;
   if (!databaseId) {
     return NextResponse.json({ error: "Database ID is not defined" }, { status: 500 });
@@ -31,7 +34,7 @@ export async function GET() {
     } while (cursor);
 
     const propertyIds = {
-      employeeName: "bfda5057-9abd-4a54-b0bb-02ade7ac557f", // select
+      employeeName: "bfda5057-9abd-4a54-b0bb-02ade7ac557f", // multi_select
       typeOfClothing: "SE%7Be", // select
       status: "%3Fzms", // select
       timestamps: "Jt%5BG", // last_edited_time
@@ -42,6 +45,10 @@ export async function GET() {
       hiddenTable: "ZpCY", // boolean
     };
 
+    if (rawData) {
+      return NextResponse.json(allResults);
+    }
+
     // Helper to find property by id from the properties object
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const getPropertyById = (properties: ArrayLike<any>, id: string) => {
@@ -51,10 +58,14 @@ export async function GET() {
     // Map the full results to Table items
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const tables: Table[] = allResults.map((result: any) => {
+      const names = getPropertyById(result.properties, propertyIds.employeeName)?.multi_select?.map((name: {name: string}) => {
+        return name.name;
+      })
+
       return {
         id: result['id'],
         notion_status_field: Object.entries(result.properties).find((prop): prop is [string, { id: string }] => (prop[1] as { id: string })?.id === propertyIds["status"])?.[0],
-        name: getPropertyById(result.properties, propertyIds.employeeName)?.select?.name,
+        name: names.join(',\n'),
         clothingType: getPropertyById(result.properties, propertyIds.typeOfClothing)?.select?.name,
         reason: getPropertyById(result.properties, propertyIds.status)?.select?.name,
         absent: getPropertyById(result.properties, propertyIds.absent)?.formula?.boolean,
