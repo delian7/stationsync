@@ -9,13 +9,16 @@ import SortingLine from './SortingLine';
 import SortingTables from './SortingTables';
 import { Table, TableGroups } from '../types/Table';
 import RetroSortingTables from './RetroSortingTables';
+import TableUpdateDropdown from './TableUpdateDropdown';
 
 export const TableDetail = (table: Table) => (
   <div>
     <h3 className="text-xl font-bold mb-2">🪑 Маса #{table.tableNumber}</h3>
+    <p>{table.id}</p>
+    <p>{table.notion_status_field}</p>
     <p>🪪 Име на служител: {table.name}</p>
     <p>👕 Артикул: {table.clothingType}</p>
-    <p>📍 Статус на Работниците: {table.reason}</p>
+    <p>📍 Статус на Работниците: <TableUpdateDropdown table={table} /></p>
   </div>
 );
 

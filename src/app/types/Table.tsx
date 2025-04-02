@@ -8,6 +8,8 @@ export interface TableGroups {
 }
 
 export interface Table {
+  id: string;
+  notion_status_field?: string;
   name: string;
   clothingType: string;
   absent: boolean;

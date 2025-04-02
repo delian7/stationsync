@@ -52,6 +52,8 @@ export async function GET() {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const tables: Table[] = allResults.map((result: any) => {
       return {
+        id: result['id'],
+        notion_status_field: Object.entries(result.properties).find((prop): prop is [string, { id: string }] => (prop[1] as { id: string })?.id === propertyIds["status"])?.[0],
         name: getPropertyById(result.properties, propertyIds.employeeName)?.select?.name,
         clothingType: getPropertyById(result.properties, propertyIds.typeOfClothing)?.select?.name,
         reason: getPropertyById(result.properties, propertyIds.status)?.select?.name,
@@ -86,6 +88,42 @@ export async function GET() {
     console.error(error);
     return NextResponse.json(
       { message: "Failed to fetch data", error },
+      { status: 500 }
+    );
+  }
+}
+
+export async function PATCH(request: Request) {
+  const databaseId = process.env.NOTION_DATABASE_ID;
+
+  if (!databaseId) {
+    return NextResponse.json({ error: "Database ID is not defined" }, { status: 500 });
+  }
+  const body = await request.json();
+  const newStatus = body['newValue'];
+  const notionStatusField = body['notionStatusField'];
+  const tableId = body['tableId']; // You can view the params in the console
+
+  // return NextResponse.json({ body }, { status: 200 });
+
+  let response;
+  try {
+    response = await notion.pages.update({
+      page_id: tableId,
+      properties: {
+        [notionStatusField]: {
+          select: {
+            name: newStatus
+          }
+        }
+      }
+    })
+    return NextResponse.json(response);
+  } catch (error) {
+    console.log(response);
+    console.error(error);
+    return NextResponse.json(
+      { message: "Failed to update page", error },
       { status: 500 }
     );
   }
