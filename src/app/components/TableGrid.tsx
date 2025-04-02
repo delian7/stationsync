@@ -62,10 +62,10 @@ const TableGrid = () => {
                 <h2 className="text-center mb-2">Първично</h2>
                 <div className="grid grid-cols-2 gap-3">
                   <div className="pr-4">
-                    { tables?.SortingTables && <SortingTables data={tables.SortingTables}/> }
+                    { tables?.SortingTables && <SortingTables setTables={setTables} data={tables.SortingTables}/> }
                   </div>
                   <div className="border-l-2 border-dotted pl-8">
-                    { tables?.SortingLine && <SortingLine data={tables.SortingLine} /> }
+                    { tables?.SortingLine && <SortingLine setTables={setTables} data={tables.SortingLine} /> }
                   </div>
                 </div>
               </div>

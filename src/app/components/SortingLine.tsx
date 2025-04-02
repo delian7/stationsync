@@ -1,11 +1,18 @@
-import { Table } from "../types/Table";
+import { Table, TableGroups } from "../types/Table";
+import { useModal } from "../contexts/ModalContext";
+import TableDetails from "./TableDetails";
+import { useState } from 'react';
+import useTableUpdater from '../utils/tableUpdater';
 
 interface SortingLineProps {
   data: Table[];
+  setTables: React.Dispatch<React.SetStateAction<TableGroups | undefined>>;
 }
 
-const SortingLine = ({data}: SortingLineProps) => {
-  const tables = data;
+const SortingLine = ({data, setTables}: SortingLineProps) => {
+  const updateTable = useTableUpdater(setTables, "OldTables");
+  const { openModal } = useModal();
+  const [tables] = useState<Table[]>(data);
   const totalRows = 7;
   const tablesPerRow = 2;
 
@@ -20,6 +27,7 @@ const SortingLine = ({data}: SortingLineProps) => {
             {rowTables.map((table) => (
               <div
                 key={table.tableNumber}
+                onClick={() => openModal(<TableDetails table={table} setTable={updateTable} />)}
                 className={`rounded-lg shadow-md p-2 hover:shadow-lg transition-shadow
                   ${table.hidden ? 'opacity-0' : 'cursor-pointer'}
                   ${table.absent ? "bg-red-100" : "bg-green-100"}
