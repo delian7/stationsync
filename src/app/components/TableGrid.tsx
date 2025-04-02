@@ -7,20 +7,8 @@ import OldTables from './OldTables';
 import RetroTables from './RetroTables';
 import SortingLine from './SortingLine';
 import SortingTables from './SortingTables';
-import { Table, TableGroups } from '../types/Table';
+import { TableGroups } from '../types/Table';
 import RetroSortingTables from './RetroSortingTables';
-import TableUpdateDropdown from './TableUpdateDropdown';
-
-export const TableDetail = (table: Table) => (
-  <div>
-    <h3 className="text-xl font-bold mb-2">🪑 Маса #{table.tableNumber}</h3>
-    <p>{table.id}</p>
-    <p>{table.notion_status_field}</p>
-    <p>🪪 Име на служител: {table.name}</p>
-    <p>👕 Артикул: {table.clothingType}</p>
-    <p>📍 Статус на Работниците: <TableUpdateDropdown table={table} /></p>
-  </div>
-);
 
 const TableGrid = () => {
   const [loading, setLoading] = useState(true);
@@ -40,7 +28,9 @@ const TableGrid = () => {
 
   if (loading) {
     return (
-      <LoadingSpinner />
+      <div className="flex h-screen w-full items-center justify-center">
+        <LoadingSpinner />
+      </div>
     );
   }
 
@@ -49,7 +39,7 @@ const TableGrid = () => {
       <div className="grid grid-cols-6 gap-3 min-w-dvh overflow-x-auto">
         <div className="border-2 p-2">
           <h2 className="text-center mb-2">Стари Маси</h2>
-          {tables?.OldTables && <OldTables data={tables.OldTables}/>}
+          {tables?.OldTables && <OldTables setTables={setTables} data={tables.OldTables}/>}
         </div>
 
         <div className="col-span-2 border-2 p-2">

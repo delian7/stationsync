@@ -1,9 +1,9 @@
 export default function LoadingSpinner() {
 
   return (
-    <div className="flex h-screen w-full items-center justify-center">
+    <span>
       <svg
-        className="animate-spin h-10 w-10 text-gray-600"
+        className="animate-spin h-10 text-gray-600"
         xmlns="http://www.w3.org/2000/svg"
         fill="none"
         viewBox="0 0 24 24"
@@ -23,6 +23,6 @@ export default function LoadingSpinner() {
           d="M4 12a8 8 0 018-8v8H4z"
         ></path>
       </svg>
-    </div>
+    </span>
   );
 }

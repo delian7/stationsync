@@ -1,16 +1,32 @@
-import { Table } from "../types/Table";
+import { Table, TableGroups } from '../types/Table';
 import { useModal } from "../contexts/ModalContext";
-import { TableDetail } from "./TableGrid";
+import TableDetails from "./TableDetails";
+import { useState } from 'react';
 
 interface OldTableProps {
   data: Table[];
+  setTables: React.Dispatch<React.SetStateAction<TableGroups | undefined>>;
 }
 
-const OldTables = ({ data }: OldTableProps) => {
+const OldTables = ({ data, setTables }: OldTableProps) => {
   const { openModal } = useModal();
-  const tables = data;
+  const [tables] = useState<Table[]>(data);
   const totalRows = 13;
   const tablesPerRow = 3;
+
+  // A helper to update a specific table within the OldTables group.
+  const updateOldTable = (updatedTable: Table) => {
+    setTables((prev) => {
+      if (!prev) return prev;
+      // Update only the matching table in the OldTables array
+      return {
+        ...prev,
+        OldTables: prev.OldTables.map((table) =>
+          table.id === updatedTable.id ? updatedTable : table
+        ),
+      };
+    });
+  };
 
   return (
     <div>
@@ -22,7 +38,7 @@ const OldTables = ({ data }: OldTableProps) => {
             <div key={rowIndex} className="grid md:w-64 w-96 grid-cols-3 gap-1 text-ellipsis">
               {rowTables.map((table) => (
                 <div
-                  onClick={() => openModal(TableDetail(table))}
+                  onClick={() => openModal(<TableDetails table={table} setTable={updateOldTable} />)}
                   key={table.tableNumber}
                   className={`rounded-lg shadow-md p-2 hover:shadow-lg transition-shadow
                     ${table.hidden ? 'opacity-0' : 'cursor-pointer'}
@@ -38,6 +54,9 @@ const OldTables = ({ data }: OldTableProps) => {
                     </div>
                     <div className="text-xs text-gray-700 font-medium">
                       {table.clothingType}
+                    </div>
+                    <div className="text-xs text-gray-700 font-medium">
+                      {table.reason}
                     </div>
                   </div>
                 </div>
