@@ -1,10 +1,18 @@
-import { Table } from "../types/Table";
+import { Table, TableGroups } from "../types/Table";
+import { useModal } from "../contexts/ModalContext";
+import TableDetails from "./TableDetails";
+import { useState } from 'react';
+import useTableUpdater from '../utils/tableUpdater';
 
 interface RetroSortingTablesProps {
-  tables: Table[];
+  data: Table[];
+  setTables: React.Dispatch<React.SetStateAction<TableGroups | undefined>>;
 }
 
-const RetroSortingTables = ({tables}: RetroSortingTablesProps) => {
+const RetroSortingTables = ({data, setTables}: RetroSortingTablesProps) => {
+  const updateTable = useTableUpdater(setTables, "RetroSortingTables");
+  const { openModal } = useModal();
+  const [tables] = useState<Table[]>(data);
   const totalRows = 10;
   const tablesPerRow = 7;
 
@@ -20,6 +28,7 @@ const RetroSortingTables = ({tables}: RetroSortingTablesProps) => {
             {rowTables.map((table) => (
               <div
                 key={table.tableNumber}
+                onClick={() => openModal(<TableDetails table={table} setTable={updateTable} />)}
                 className={`rounded-lg shadow-md p-2 hover:shadow-lg transition-shadow
                   ${table.hidden ? 'opacity-0' : 'cursor-pointer'}
                   ${table.absent ? "bg-red-100" : "bg-green-100"}
