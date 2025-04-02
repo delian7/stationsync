@@ -1,11 +1,18 @@
-import { Table } from "../types/Table";
+import { Table, TableGroups } from "../types/Table";
+import { useModal } from "../contexts/ModalContext";
+import TableDetails from "./TableDetails";
+import { useState } from 'react';
+import useTableUpdater from '../utils/tableUpdater';
 
 interface NewTableProps {
   data: Table[];
+  setTables: React.Dispatch<React.SetStateAction<TableGroups | undefined>>;
 }
 
-const NewTables = ({data}: NewTableProps) => {
-  const tables = data;
+const NewTables = ({ data, setTables }: NewTableProps) => {
+  const updateTable = useTableUpdater(setTables, "NewTables");
+  const { openModal } = useModal();
+  const [tables] = useState<Table[]>(data);
   const totalRows = 13;
   const tablesPerRow = 5;
 
@@ -20,6 +27,7 @@ const NewTables = ({data}: NewTableProps) => {
               {rowTables.map((table) => (
                 <div
                   key={table.tableNumber}
+                  onClick={() => openModal(<TableDetails table={table} setTable={updateTable} />)}
                   className={`rounded-lg shadow-md p-2 hover:shadow-lg transition-shadow
                     ${table.hidden ? 'opacity-0' : 'cursor-pointer'}
                     ${table.absent ? "bg-red-100" : "bg-green-100"}
