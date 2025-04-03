@@ -38,8 +38,9 @@ const TableGrid = () => {
   return (
     <div className="p-4 bg-gray-100 min-h-screen">
       <h2 className="text-2xl font-semibold">Eurotex StationSync</h2>
-      <div className='my-4 text-blue-700'>
+      <div className='my-4 text-blue-700 flex flex-col'>
         <a href="#statistics">Статистика</a>
+        <a target="_blank" href="https://www.notion.so/1c996d94a07d816f83adf576a84f52d2">Notion Database</a>
       </div>
       <div className="grid grid-cols-6 gap-3 min-w-dvh overflow-x-auto">
         <div className="border-2 p-2">
