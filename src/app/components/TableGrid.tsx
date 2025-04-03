@@ -9,6 +9,7 @@ import SortingLine from './SortingLine';
 import SortingTables from './SortingTables';
 import { TableGroups } from '../types/Table';
 import RetroSortingTables from './RetroSortingTables';
+import Statistics from './Statistics';
 
 const TableGrid = () => {
   const [loading, setLoading] = useState(true);
@@ -36,6 +37,10 @@ const TableGrid = () => {
 
   return (
     <div className="p-4 bg-gray-100 min-h-screen">
+      <h2 className="text-2xl font-semibold">Eurotex StationSync</h2>
+      <div className='my-4 text-blue-700'>
+        <a href="#statistics">Статистика</a>
+      </div>
       <div className="grid grid-cols-6 gap-3 min-w-dvh overflow-x-auto">
         <div className="border-2 p-2">
           <h2 className="text-center mb-2">Стари Маси</h2>
@@ -72,6 +77,9 @@ const TableGrid = () => {
             </div>
         </div>
         </div>
+      </div>
+      <div id="statistics">
+        {tables && <Statistics tables={tables}/>}
       </div>
     </div>
   );
