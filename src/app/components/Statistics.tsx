@@ -10,11 +10,13 @@ const Statistics = ({tables}: StatisticsProps) => {
 
   Object.values(tables).forEach((group) => {
     group.forEach((table: Table) => {
-      const reason = table.reason || "Unknown";
-      if (reason !== "Unknown") {
-        totalCount ++;
+      if (table.name) {
+        const reason = table.reason || "Unknown";
+        if (reason !== "Unknown") {
+          totalCount ++;
+        }
+        reasonCounts[reason] = (reasonCounts[reason] || 0) + 1;
       }
-      reasonCounts[reason] = (reasonCounts[reason] || 0) + 1;
     });
   });
 
